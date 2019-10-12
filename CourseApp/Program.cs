@@ -4,23 +4,27 @@ namespace CourseApp
 {
     public class Program
     {
-        public static double MyFunction(double a, double b, double x)
+        public static double[] TaskA(double a, double xn, double xk, double dx)
         {
-            var y = (a * Math.Pow(x, 2)) + (b * x);
+            int j = 0;
+            var y = new double[5];
+
+            for (var i = xn; i < xk; i += dx)
+            {
+                y[j] = Math.Pow(Math.Log10(a + i), 2) / Math.Pow(a + i, 2);
+                j++;
+            }
+
             return y;
         }
 
-        public static double[] TaskA(double a, double b, double xn, double xk, double dx)
-        {
-            return new double[0];
-        }
-
-        public static double[] TaskB(double a, double b, double[] x)
+        public static double[] TaskB(double a, double[] x)
         {
             var y = new double[x.Length];
-            for (var i = 0; i < x.Length; i++)
+
+            for (var i = 0; i < y.Length; i++)
             {
-                y[i] = MyFunction(a, b, x[i]);
+                y[i] = Math.Pow(Math.Log10(a + x[i]), 2) / Math.Pow(a + x[i], 2);
             }
 
             return y;
@@ -29,12 +33,19 @@ namespace CourseApp
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            const double a = 2.2;
-            const double b = 3.8;
-            var resSingle = MyFunction(a, b, 4);
-            Console.WriteLine(resSingle);
+            const double a = 2.0;
+            const double xn = 1.2;
+            const double xk = 4.2;
+            const double dx = 0.6;
+
+            var resSingle = TaskA(a, xn, xk, dx);
+            foreach (var item in resSingle)
+            {
+                Console.WriteLine($"y = {item}");
+            }
+
             var x = new double[] { 1, 2, 3, 4, 5 };
-            var taskBRes = TaskB(a, b, x);
+            var taskBRes = TaskB(a, x);
             foreach (var item in taskBRes)
             {
                 Console.WriteLine($"y = {item}");
