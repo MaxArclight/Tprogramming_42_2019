@@ -5,7 +5,6 @@ namespace CourseApp.Tests
 {
     public class DemoTest
     {
-
         [Theory]
         [InlineData(7.2, 3.8, 1, 0)]
 

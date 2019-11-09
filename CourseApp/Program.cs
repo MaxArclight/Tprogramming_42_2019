@@ -61,7 +61,7 @@ namespace CourseApp
         {
             Console.WriteLine("Hello World!");
 
-            TaskA(7.2, 4.2, 1.81, 5.31, 10);
+            TaskA(7.2, 4.2, 1.81, 5.31, 0.7);
 
             const double a = 2.2;
             const double b = 3.8;
