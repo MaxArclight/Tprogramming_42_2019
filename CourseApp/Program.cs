@@ -6,6 +6,11 @@ namespace CourseApp
     {
         public static double MyFunction(double a, double b, double x)
         {
+            if (a == 0 && b == 0 && x == 0)
+            {
+                return 0;
+            }
+
             double upper = a - (b * x);
             upper = Math.Abs(upper);
 
@@ -22,11 +27,19 @@ namespace CourseApp
         {
             double mas = (xk - xn) / dx;
             double[] y = new double[(int)mas];
+            double[] preExitY = new double[1];
+
+            if ((xk - xn) < dx)
+            {
+                preExitY[0] = MyFunction(a, b, xn);
+                return preExitY;
+            }
 
             int i = 0;
             for (double x = xn; x <= xk; x += dx)
             {
                 y[i] = MyFunction(a, b, x);
+                Console.WriteLine(y[i]);
                 i++;
             }
 
@@ -47,6 +60,9 @@ namespace CourseApp
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            TaskA(7.2, 4.2, 1.81, 5.31, 10);
+
             const double a = 2.2;
             const double b = 3.8;
             var resSingle = MyFunction(a, b, 4);
