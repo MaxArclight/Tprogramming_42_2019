@@ -1,55 +1,68 @@
-using System;
+﻿using System;
 using Xunit;
 
 namespace CourseApp.Tests
 {
-    public class PlatypusTest
+    public class DishTest
     {
         [Fact]
         public void TestEmptyConstructor()
         {
-            var item = new Platypus();
-            Assert.Equal(0, item.Age);
+            var item = new Dish();
+            Assert.Equal(0, item.Weight);
             Assert.Equal("Untitled", item.Name);
-            Assert.True(item.IsMale);
+            Assert.True(item.IsReady);
         }
 
         [Fact]
-        public void TestView()
+        public void TestSetWeight()
         {
-            var item = new Platypus();
-            var view = @"
-         _.-^~~^^^`~-,_,,~''''''```~,''``~'``~,
- ______,'  -o  :.  _    .          ;     ,'`,  `.
-(      -\.._,.;;'._ ,(   }        _`_-_,,    `, `,
- ``~~~~~~'   ((/'((((____/~~~~~~'(,(,___>      `~'
- ";
-            Assert.Equal(view, item.View());
+            var item = new Dish();
+            item.Weight = 5;
+            Assert.Equal(5, item.Weight);
         }
 
         [Fact]
-        public void TestSetAge()
+        public void TestIncorrectSetWeight()
         {
-            var item = new Platypus();
-            item.Age = 5;
-            Assert.Equal(5, item.Age);
+            var item = new Dish();
+            item.Weight = -5;
+            Assert.Equal(0, item.Weight);
         }
 
         [Fact]
-        public void TestIncorrectSetAge()
+        public void TestCorrectIncorrectSetWeight()
         {
-            var item = new Platypus();
-            item.Age = -5;
-            Assert.Equal(0, item.Age);
+            var item = new Dish();
+            item.Weight = 10;
+            item.Weight = -5;
+            Assert.Equal(10, item.Weight);
         }
 
         [Fact]
-        public void TestCorrectIncorrectSetAge()
+        public void TestSetCol()
         {
-            var item = new Platypus();
-            item.Age = 10;
-            item.Age = -5;
-            Assert.Equal(10, item.Age);
+            var item = new Dish();
+            item.Col = 5;
+            Assert.Equal(5, item.Col);
+        }
+
+        [Fact]
+
+        public void TestIncorrectSetCol()
+        {
+            var item = new Dish();
+            item.Col = -5;
+            Assert.Equal(0, item.Col);
+        }
+
+        [Fact]
+        public void TestCorrectIncorrectSetCol()
+        {
+            var item = new Dish();
+            item.Col = 10;
+            item.Col = -5;
+            Assert.Equal(10, item.Col);
         }
     }
 }
