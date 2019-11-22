@@ -1,44 +1,28 @@
-using System;
+﻿using System;
 
 namespace CourseApp
 {
     public class Dish
     {
         private int rating;
+        private int weight;
+        private int cal;
 
         public Dish()
-            : this(
-                  name: "Something",
-                  rating: 0,
-                  engredients: new string[] { "Sugar", "Milk", "Salt", "Eggs" },
-                  weight: 500,
-                  col: 200,
-                  ready: true)
+        : this(0, "Untitled", true)
         {
         }
 
-        public Dish(string name, int rating, string[] engredients, float weight, float col, bool ready)
+        public Dish(int rating, string name, bool isReady)
         {
-            Col = 0;
-            Weight = 0;
             Name = name;
-
             Rating = rating;
-            Engredients = engredients;
-            IsReady = ready;
-
-            if (col > 0)
-            {
-                Col = col;
-            }
-
-            if (weight > 0)
-            {
-                Weight = weight;
-            }
+            IsReady = isReady;
         }
 
         public string Name { get; set; }
+
+        public bool IsReady { get; set; }
 
         public int Rating
         {
@@ -49,46 +33,55 @@ namespace CourseApp
 
             set
             {
-                if (value >= 0 && value < 10)
+                if (value >= 0 && value < 100)
                 {
                     this.rating = value;
                 }
                 else
                 {
-                    Console.WriteLine("Rating should be > 0 and < than 20");
+                    Console.WriteLine("Rating should be > 0 and < than 100");
                 }
             }
         }
 
-        public bool IsReady { get; set; }
-
-        public string[] Engredients { get; set; }
-
-        public float Weight
+        public int Weight
         {
             get
             {
-                return this.Weight;
+                return this.weight;
             }
 
             set
             {
                 if (value >= 0)
                 {
-                    this.Weight = value;
+                    this.weight = value;
                 }
                 else
                 {
-                    this.Weight = 0;
+                    Console.WriteLine("Weight should be > 0");
                 }
             }
         }
 
-        public float Col { get; set; }
-
-        public void View()
+        public int Cal
         {
-            Console.WriteLine(Name);
+            get
+            {
+                return this.cal;
+            }
+
+            set
+            {
+                if (value >= 0)
+                {
+                    this.cal = value;
+                }
+                else
+                {
+                    Console.WriteLine("calories should be > 0");
+                }
+            }
         }
     }
 }

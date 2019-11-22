@@ -1,5 +1,4 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace CourseApp.Tests
 {
@@ -40,29 +39,20 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestSetCol()
+        public void TestSetCal()
         {
             var item = new Dish();
-            item.Col = 5;
-            Assert.Equal(5, item.Col);
+            item.Cal = 5;
+            Assert.Equal(5, item.Cal);
         }
 
         [Fact]
-
-        public void TestIncorrectSetCol()
+        public void TestCorrectIncorrectSetCal()
         {
             var item = new Dish();
-            item.Col = -5;
-            Assert.Equal(0, item.Col);
-        }
-
-        [Fact]
-        public void TestCorrectIncorrectSetCol()
-        {
-            var item = new Dish();
-            item.Col = 10;
-            item.Col = -5;
-            Assert.Equal(10, item.Col);
+            item.Cal = 10;
+            item.Cal = -5;
+            Assert.Equal(10, item.Cal);
         }
     }
 }
