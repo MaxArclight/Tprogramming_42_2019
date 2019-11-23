@@ -39,7 +39,7 @@ namespace CourseApp
                 }
                 else
                 {
-                    Console.WriteLine("Rating should be > 0 and < than 100");
+                    throw new ArgumentOutOfRangeException("value", "Rating should be > 0 and < than 100");
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace CourseApp
                 }
                 else
                 {
-                    Console.WriteLine("Weight should be > 0");
+                    throw new ArgumentOutOfRangeException("value", "Weight should be > 0");
                 }
             }
         }
@@ -79,7 +79,7 @@ namespace CourseApp
                 }
                 else
                 {
-                    Console.WriteLine("calories should be > 0");
+                    throw new ArgumentOutOfRangeException("value", "Calories should be > 0");
                 }
             }
         }
