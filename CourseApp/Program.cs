@@ -32,6 +32,12 @@ namespace CourseApp
             if ((xk - xn) < dx)
             {
                 preExitY[0] = MyFunction(a, b, xn);
+
+                if (preExitY[0] < 0)
+                {
+                    throw new ArgumentOutOfRangeException("y");
+                }
+
                 return preExitY;
             }
 
@@ -39,8 +45,19 @@ namespace CourseApp
             for (double x = xn; x <= xk; x += dx)
             {
                 y[i] = MyFunction(a, b, x);
+
+                if (y[i] < 0)
+                {
+                    throw new ArgumentOutOfRangeException("y");
+                }
+
                 Console.WriteLine(y[i]);
                 i++;
+            }
+
+            if ((xk - xn) / dx != y.Length)
+            {
+                throw new IndexOutOfRangeException("y");
             }
 
             return y;
