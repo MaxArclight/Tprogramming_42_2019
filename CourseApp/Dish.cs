@@ -83,5 +83,11 @@ namespace CourseApp
                 }
             }
         }
+
+        public bool Cook()
+        {
+            this.IsReady = true;
+            return this.IsReady;
+        }
     }
 }

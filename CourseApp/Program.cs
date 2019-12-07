@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CourseApp
 {
@@ -23,41 +25,46 @@ namespace CourseApp
             return y;
         }
 
-        public static double[] TaskA(double a, double b, double xn, double xk, double dx)
+        public static ArrayList TaskA(double a, double b, double xn, double xk, double dx)
         {
             double mas = (xk - xn) / dx;
-            double[] y = new double[(int)mas];
-            double[] preExitY = new double[1];
+
+            ArrayList y = new ArrayList((int)mas);
+
+            // double[] y = new double[(int)mas];
+            ArrayList preExitY = new ArrayList();
 
             if ((xk - xn) < dx)
             {
-                preExitY[0] = MyFunction(a, b, xn);
+                preExitY.Add(MyFunction(a, b, xn));
 
-                if (preExitY[0] < 0)
+                foreach (double obj in preExitY)
                 {
+                    if (obj < 0)
+                    {
                     throw new ArgumentOutOfRangeException("y");
+                    }
                 }
 
                 return preExitY;
             }
 
-            int i = 0;
             for (double x = xn; x <= xk; x += dx)
             {
-                y[i] = MyFunction(a, b, x);
+                y.Add(MyFunction(a, b, x));
+            }
 
-                if (y[i] < 0)
+            if ((xk - xn) / dx != y.Count)
+            {
+                throw new IndexOutOfRangeException("y");
+            }
+
+            foreach (double obj in y)
+            {
+                if (obj < 0)
                 {
                     throw new ArgumentOutOfRangeException("y");
                 }
-
-                Console.WriteLine(y[i]);
-                i++;
-            }
-
-            if ((xk - xn) / dx != y.Length)
-            {
-                throw new IndexOutOfRangeException("y");
             }
 
             return y;

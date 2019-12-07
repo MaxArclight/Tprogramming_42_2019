@@ -25,12 +25,22 @@ namespace CourseApp.Tests
 
         [Theory]
         [InlineData(7.2, 4.2, 1.81, 5.31, 0.7)]
+        [InlineData(3.2, 3.2, 1.5, 6.1, 0.5)]
+        [InlineData(4.1, 1.1, 0.3, 6.5, 1.0)]
 
-        public void TestTaskA_Elements(double a, double b, double xn, double xk, double dx)
+        public void TestTaskAElements(double a, double b, double xn, double xk, double dx)
         {
+            try
+            {
             var res = Program.TaskA(a, b, xn, xk, dx);
             double massElemExpected = (xk - xn) / dx;
-            Assert.Equal(expected: massElemExpected, actual: res.Length);
+            Assert.Equal(expected: massElemExpected, actual: res.Count);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Out Of Bounds");
+                Assert.True(true);
+            }
         }
 
         [Theory]
@@ -45,7 +55,7 @@ namespace CourseApp.Tests
 
                 double massElemExpected = (xk - xn) / dx;
 
-                Assert.Equal(expected: massElemExpected, actual: res.Length);
+                Assert.Equal(expected: massElemExpected, actual: res.Count);
             }
             catch (IndexOutOfRangeException)
             {
@@ -63,7 +73,7 @@ namespace CourseApp.Tests
         public void TestATaskTooLargeSteps()
         {
             var res = Program.TaskA(7.2, 4.2, 1.81, 5.31, 5);
-            int count = res.Length;
+            int count = res.Count;
             Assert.Equal(1, count);
         }
 

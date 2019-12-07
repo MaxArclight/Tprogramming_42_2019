@@ -103,5 +103,13 @@ namespace CourseApp.Tests
                 Assert.True(true);
             }
         }
+
+        [Fact]
+        public void TestStats()
+        {
+            var item = new Dish();
+            bool bl = item.Cook();
+            Assert.True(bl);
+        }
     }
 }
