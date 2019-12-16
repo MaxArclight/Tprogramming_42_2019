@@ -98,6 +98,7 @@ namespace CourseApp
                 Console.WriteLine($"y = {item}");
             }
 
+            AgeCalc.AgeMain();
             Console.ReadLine();
         }
     }

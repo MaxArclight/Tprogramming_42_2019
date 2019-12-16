@@ -16,7 +16,6 @@ namespace CourseApp
         public Food(int rating, string name, bool isReady)
         {
             Name = name;
-            Rating = rating;
             IsReady = isReady;
         }
 
