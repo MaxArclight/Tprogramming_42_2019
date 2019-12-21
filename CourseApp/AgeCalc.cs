@@ -19,10 +19,8 @@ namespace CourseApp
             return inputDate;
         }
 
-        public static DateTime AgeCalcFunc(DateTime date)
+        public static DateTime AgeCalcFunc(DateTime date, DateTime curDate)
         {
-            DateTime curDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-
             if (date > curDate)
             {
                 throw new IndexOutOfRangeException();
@@ -40,7 +38,8 @@ namespace CourseApp
 
         internal static void AgeMain()
         {
-            DateTime output = AgeCalcFunc(AgeInput());
+            DateTime nowDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            DateTime output = AgeCalcFunc(AgeInput(), nowDate);
 
             Console.WriteLine(output);
 
