@@ -21,7 +21,7 @@ namespace CourseApp
 
         public static DateTime AgeCalcFunc(DateTime date)
         {
-            DateTime curDate = DateTime.Now;
+            DateTime curDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
             if (date > curDate)
             {

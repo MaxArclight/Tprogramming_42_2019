@@ -17,7 +17,8 @@ namespace CourseApp.Tests
                 DateTime inputDate = new DateTime(year, month, day);
                 DateTime result = AgeCalc.AgeCalcFunc(inputDate);
                 DateTime datemin = new DateTime(2, 2, 1);
-                DateTime expect = new DateTime(DateTime.Now.Ticks - inputDate.Ticks - datemin.Ticks);
+                DateTime curDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                DateTime expect = new DateTime(curDate.Ticks - inputDate.Ticks - datemin.Ticks);
                 Assert.Equal(expected: expect, actual: result);
             }
             catch (IndexOutOfRangeException outOfRange)
