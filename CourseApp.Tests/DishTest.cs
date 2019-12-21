@@ -145,8 +145,4 @@ namespace CourseApp.Tests
             }
         }
     }
-()
-    {
-
-    }
 }

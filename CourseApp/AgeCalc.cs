@@ -7,10 +7,19 @@ namespace CourseApp
         public static DateTime AgeCalcFunc(DateTime date)
         {
             DateTime curDate = DateTime.Now;
+
+            if (date > curDate)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            if (date == curDate)
+            {
+                throw new ArgumentException();
+            }
+
             DateTime datemin = new DateTime(2, 2, 1);
             DateTime age = new DateTime(curDate.Ticks - date.Ticks - datemin.Ticks);
-
-           // age = new DateTime(age.Year - , age.Month - 1, age.Day);
             return age;
         }
 
