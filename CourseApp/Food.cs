@@ -8,14 +8,16 @@ namespace CourseApp
         private double weight;
         private double cal;
 
-        public Food()
-        : this(0, "Untitled", true)
-        {
-        }
-
         public Food(int rating, string name, bool isReady)
         {
             Name = name;
+            IsReady = isReady;
+        }
+
+        public Food(string name, int rating, bool isReady)
+        {
+            Name = name;
+            this.rating = rating;
             IsReady = isReady;
         }
 

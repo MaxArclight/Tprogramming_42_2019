@@ -5,11 +5,12 @@ namespace CourseApp
     public class Dish : Food
     {
         public Dish()
-        : this(0, "Untitled", true)
+        : this("Untitled", 1, true)
         {
         }
 
-        public Dish(int rating, string name, bool isReady)
+        public Dish(string name, int rating, bool isReady)
+            : base(name, rating, isReady)
         {
             Name = name;
             Rating = rating;

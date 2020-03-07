@@ -12,6 +12,7 @@ namespace CourseApp
         }
 
         public Drink(int rating, string name, bool isReady)
+            : base(name, rating, isReady)
         {
             Name = name;
             Rating = rating;
